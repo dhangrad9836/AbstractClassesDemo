@@ -35,7 +35,8 @@ namespace ConsoleUI
             // Create a list of Vehicle called vehicles
 
             /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) 
+             * but use constuctors from derived classes
              * 
              * Set the properties values with object initializer syntax
              */
@@ -47,7 +48,63 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
+
+            //create a list of Vehicle called vehicles
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            //create 4 instances
+            Car car_vehicle = new Car()
+            {
+                HasTrunk = true,
+                Make = "Toyota",
+                Model = "4Runner",
+                Year = "2024"
+            };
+
+            Motorcycle motorcycle_vehicle = new Motorcycle()
+            {
+                HasSideCart = true,
+                Make = "Kawaski",
+                Model = "XCV234",
+                Year = "2022"
+            };
+
+
+            //create the other two of type Vehicle of EXPLICIT type (Vehicle) you need to use the actual name
+            //of the type-----VEHICLE
+            Vehicle car_vehicle_Explicit = new Car()
+            {
+                Make = "Honda",
+                Model = "Civic",
+                Year = "2020"
+            };
+            Vehicle motorcycle_vehicle_Explicit = new Motorcycle()
+            {
+                Make = "Honda",
+                Model = "CF123",
+                Year = "2022"
+            };
+
+            //add the vehicles to the list
+            vehicles.Add(car_vehicle);
+            vehicles.Add(motorcycle_vehicle);
+            vehicles.Add(car_vehicle_Explicit);
+            vehicles.Add(motorcycle_vehicle_Explicit);
+
+            //use a for loop to loop throught the vehicles
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($"{vehicle.Make}");
+                Console.WriteLine($"{vehicle.Model}");
+                Console.WriteLine($"{vehicle.Year}");
+                Console.WriteLine("----------------");
+                vehicle.DriveAbstract();
+                vehicle.DriveVirtual();
+                Console.WriteLine("----------------");
+            }
+
+
             Console.ReadLine();
         }
     }
